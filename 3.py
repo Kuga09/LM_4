@@ -1,6 +1,10 @@
+import numpy as np
+from keras import models, layers
+
+
 intializators = ['random_normal','he_normal','glorot_uniform']
 for init in intializators:
-    models = models.Sequential([
+    model = models.Sequential([
         layers.Dense(64, kernel_initializer=init, input_shape=(100,)),
         layers.Dense(10, activation='softmax')
     ])

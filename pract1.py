@@ -2,13 +2,10 @@ import numpy as np
 from keras import models, layers
 
 model = models.Sequential([
-    layers.Dense(3, input_shape=(5,), activation='relu')
-
+    layers.Dense(3, input_shape=(5,), activation='relu', kernel_initializer='zeros')
 ])
 
-weights = np.full((5,3),0.5) #все веса равны 0.5
-biases = np.zeros(3)
-model.layers[0].set_weights([weights,biases])
+weights, biases = model.layers[0].get_weights()
 
 X = np.array([[1,2,3,4,5],[0,1,0,1,0]])
 Y = model.predict(X)
