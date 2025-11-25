@@ -1,12 +1,11 @@
 import numpy as np
 from keras import models, layers
 
-models = models.Sequential([
+model = models.Sequential([
     layers.Dense(10, input_shape=(5,))
-
 ])
 
-weights, biases = models.layers[0].get_weights()
+weights, biases = model.layers[0].get_weights()
 
 print(weights.shape)
 print(biases.shape)
